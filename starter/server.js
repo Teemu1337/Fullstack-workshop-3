@@ -2,47 +2,21 @@ const express = require('express');
 const path = require('path');
 
 const express app = express();
-
 const PORT = process.env.PORT || 3000;
 
-// ========================================
-// TODO: Task 2 - Serve Static Files
-// ========================================
-// Configure Express to serve static files from the 'public' directory
-// This middleware automatically serves HTML, CSS, images, etc.
-// Hint: This single line replaces all the file reading logic from Workshop 02!
+app.use(express.static("public"));
 
-
-// ========================================
-// BONUS: Custom Request Logging Middleware
-// ========================================
-// Uncomment this middleware to log all incoming requests:
-/*
-app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-    next(); // Don't forget to call next()!
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-*/
 
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
 
-// ========================================
-// TODO: Task 3 - Add Route Handlers
-// ========================================
-// Create route handlers for the main pages
-
-// About home route
-// TODO: Create a GET route for '/'
-// Hint: serve 'index.html'
-
-
-// About page route
-// TODO: Create a GET route for '/about'
-// Hint: Similar to the home page route, but serve 'about.html'
-
-
-// Contact page route
-// TODO: Create a GET route for '/contact'
-// Hint: Similar to the home page route, but serve 'contact.html'
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+});
 
 
 // ========================================
