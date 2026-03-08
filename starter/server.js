@@ -1,10 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-// ========================================
-// TODO: Task 1 - Create Express App
-// ========================================
-// Step 1: Create an Express application instance
+const express app = express();
 
 const PORT = process.env.PORT || 3000;
 
