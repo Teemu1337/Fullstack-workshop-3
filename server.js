@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 
-const express app = express();
+const app = express();
 const PORT = process.env.PORT || 3000;
 // Task 2
 app.use(express.static("public"));
@@ -44,10 +44,6 @@ app.use((err, req, res, next) => {
 
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
 app.listen(PORT, () => {
     console.log(`✅ Server is running on http://localhost:${PORT}`);
     console.log('\n📍 Available routes:');
